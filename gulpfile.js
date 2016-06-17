@@ -167,17 +167,6 @@ gulp.task('usemin', ['sass', 'copy', 'assemble'], function() {
     }));
 });
 
-// ===================================================
-// Create a Production Server
-// ===================================================
-
-gulp.task('serveprod', ['assemble'], function() {
-  $.connect.server({
-    root: [paths.site],
-    port: process.env.PORT || 5000,
-    livereload: false
-  });
-});
 
 // ===================================================
 // Utilities
@@ -226,5 +215,5 @@ gulp.task('watch', function() {
 if(process.env.NODE_ENV === 'development' || process.env.NODE_ENV === undefined) {
   gulp.task('default', [ 'sass', 'assemble', 'serve', 'watch']);
 } else {
-  gulp.task('default', ['usemin', 'serveprod']);
+  gulp.task('default', ['usemin', 'serve']);
 }
