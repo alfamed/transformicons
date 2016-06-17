@@ -171,10 +171,10 @@ gulp.task('usemin', ['sass', 'copy', 'assemble'], function() {
 // Create a Production Server
 // ===================================================
 
-gulp.task('serveprod', function() {
-  connect.server({
+gulp.task('serveprod', ['assemble'], function() {
+  $.connect.server({
     root: [paths.site],
-    port: process.env.PORT || 5000, // localhost:5000
+    port: process.env.PORT || 5000,
     livereload: false
   });
 });
